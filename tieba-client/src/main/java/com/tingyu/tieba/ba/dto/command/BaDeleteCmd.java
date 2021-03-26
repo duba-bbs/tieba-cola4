@@ -1,13 +1,13 @@
 package com.tingyu.tieba.ba.dto.command;
 
+import java.math.BigInteger;
 import javax.validation.constraints.NotNull;
-import com.tingyu.tieba.ba.dto.data.BaDTO;
 import lombok.Data;
 
 @Data
-public class BaAddCmd{
+public class BaDeleteCmd{
 
     @NotNull
-    private BaDTO baDTO;
+    private BigInteger id;
 
 }

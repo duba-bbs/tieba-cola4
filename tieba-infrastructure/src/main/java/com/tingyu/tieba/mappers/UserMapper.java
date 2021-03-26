@@ -1,4 +1,4 @@
-package com.tingyu.tieba.user.mapper;
+package com.tingyu.tieba.mappers;
 
 import com.tingyu.tieba.user.dataobject.UserDO;
 

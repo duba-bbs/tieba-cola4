@@ -1,7 +1,16 @@
 package com.tingyu.tieba.domain.ba.gateway;
 
-import com.tingyu.tieba.domain.ba.model.Ba;
+import java.math.BigInteger;
+import java.util.List;
+
+import com.tingyu.tieba.ba.dto.query.BaListQry;
+import com.tingyu.tieba.domain.ba.model.BaEntity;
 
 public interface BaGateway {
-    public Ba getBaById(String baId);
+
+    public void create(BaEntity ba);
+
+    public void update(BaEntity ba);
+
+    public void delete(BigInteger id);
 }

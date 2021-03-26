@@ -21,9 +21,13 @@
 
 > COLA 是阿里的，阿里对数据模型的称呼和社区有偏差，要注意甄别。
 
-**存储时**，外部的 DTO(或者是 VO)通过`convertor.toDomainEntity`转变为领域模型(放在`domain/model`)，领域模型除了字段可以有其他逻辑代码来计算数据，这是和 DTO 的不同之处，接着在`infrastructure/gatewayimpl`再将领域模型通过`convertor.toDataObject`转变成 DO(特指库表映射对象)，最后通过 DAO 接口(XXXMapper.java)持久化 DO。
+**存储时**，外部的 DTO/VO/CO 在 app 层的 executor 中经过`convertor.toDomainEntity`转变为领域模型(放在`domain/model`)，领域模型除了字段可以有其他逻辑代码来计算数据，这是和 DTO 的不同之处，接着在 infrastructure 层的 gatewayimpl 中再将领域模型通过`convertor.toDataObject`转变成 DO(特指库表映射对象)，最后通过 DAO 接口(XXXMapper.java)持久化 DO。
 
-**查询时**就是上述的逆过程，要注意的是，domain 层是可选的，也就是说领域模型是应对复杂数据结构及操作时需要的，对于简单的 CRUD 是可以绕过 domain 层，直接在 app 层调用 infrastructure 层的 DAO 接口。可以参考 COLA 作者的原话[对于 domain，app，infra 的疑问](https://github.com/alibaba/COLA/issues/130)。
+**查询时**就是上述的逆过程，要注意的是，domain 层是可选的，也就是说领域模型是应对复杂数据结构及操作时需要的，对于简单的 CRUD 是可以绕过 domain 层，直接在 app 层的 executor 中调用 infrastructure 层的 DAO 接口。可以参考 COLA 作者的原话[对于 domain，app，infra 的疑问](https://github.com/alibaba/COLA/issues/130)。
+
+根据 cola 作者提供的 sample 来看，不管要不要 domain 层，都是在 app 层将 Domain Entity/DO 转为 DTO/VO/CO 的，所以如果不要 domain 层，在 Gateway 层直接返回 DO 即可，然后在 app 层将 DO 转为 CO，如果要 domain 层，在 Gateway 层将 DO 转为 Entity，然后在 app 层将 Entity 转为 CO。参考[infrastructure 中多个查询参数该怎么封装](https://github.com/alibaba/COLA/issues/177)。
+
+infrastructure 层目前来看是不依赖 client 层的。
 
 ## 待完善部分
 
@@ -31,6 +35,7 @@
 - 升级成 mybatis-plus
 - 库表实体自动生成
 - CQRS — Command Query Responsibility Segregation，故名思义是将 command 与 query 分离的一种模式。
+- GraphQL 解决 RESTful 多参数查询问题
 
 ## Q&A
 

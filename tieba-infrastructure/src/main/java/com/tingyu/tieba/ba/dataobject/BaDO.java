@@ -1,5 +1,6 @@
 package com.tingyu.tieba.ba.dataobject;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 import lombok.Data;
 
@@ -14,11 +15,11 @@ import lombok.Data;
 @Data
 public class BaDO {
 
-    private Long id;
+    private BigInteger id;
     /**
      * 上级ID，级别是版时为0
      */
-    private Long parentId;
+    private BigInteger parentId;
 
     /**
      * 级别（0版 1吧）

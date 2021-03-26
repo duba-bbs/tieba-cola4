@@ -2,9 +2,9 @@ package com.tingyu.tieba.comment.gatewayimpl;
 
 import com.tingyu.tieba.comment.convertor.CommentConvertor;
 import com.tingyu.tieba.comment.dataobject.CommentDO;
-import com.tingyu.tieba.comment.mapper.CommentMapper;
 import com.tingyu.tieba.domain.comment.gateway.CommentGateway;
 import com.tingyu.tieba.domain.comment.model.Comment;
+import com.tingyu.tieba.mappers.CommentMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

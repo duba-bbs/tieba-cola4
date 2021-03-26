@@ -5,7 +5,7 @@ import com.tingyu.tieba.ba.dto.data.BaDTO;
 import lombok.Data;
 
 @Data
-public class BaAddCmd{
+public class BaUpdateCmd{
 
     @NotNull
     private BaDTO baDTO;

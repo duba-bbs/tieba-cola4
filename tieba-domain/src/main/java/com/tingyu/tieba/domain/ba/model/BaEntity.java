@@ -1,5 +1,6 @@
 package com.tingyu.tieba.domain.ba.model;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 import com.alibaba.cola.domain.Entity;
 import com.alibaba.cola.exception.BizException;
@@ -8,13 +9,13 @@ import lombok.Data;
 //Domain Entity can choose to extends the domain model which is used for DTO
 @Data
 @Entity
-public class Ba{
+public class BaEntity{
 
-    private Long id;
+    private BigInteger id;
     /**
      * 上级ID，级别是版时为0
      */
-    private Long parentId;
+    private BigInteger parentId;
 
     /**
      * 级别（0版 1吧）
@@ -66,7 +67,7 @@ public class Ba{
      */
     private String isDeleted;
 
-    public Ba() {
+    public BaEntity() {
     }
 
     public boolean isValidBa() {

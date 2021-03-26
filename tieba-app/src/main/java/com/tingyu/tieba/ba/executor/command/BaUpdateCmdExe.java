@@ -1,10 +1,8 @@
 package com.tingyu.tieba.ba.executor.command;
 
 import com.alibaba.cola.dto.Response;
-import com.alibaba.cola.exception.BizException;
 import com.tingyu.tieba.ba.convertor.BaConvertor;
-import com.tingyu.tieba.ba.dto.command.BaAddCmd;
-import com.tingyu.tieba.ba.dto.data.ErrorCode;
+import com.tingyu.tieba.ba.dto.command.BaUpdateCmd;
 import com.tingyu.tieba.domain.ba.gateway.BaGateway;
 import com.tingyu.tieba.domain.ba.model.BaEntity;
 
@@ -12,16 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BaAddCmdExe{
+public class BaUpdateCmdExe{
 
     @Autowired
     private BaGateway baGateway;
-
-    public Response execute(BaAddCmd cmd) {
-        //The flow of usecase is defined here.
-        //The core ablility should be implemented in Domain. or sink to Domian gradually
+    
+    public Response execute(BaUpdateCmd cmd) {
         BaEntity ba = BaConvertor.toDomainEntity(cmd.getBaDTO());
-        baGateway.create(ba);
+        baGateway.update(ba);
         return Response.buildSuccess();
     }
 

@@ -1,4 +1,4 @@
-package com.tingyu.tieba.comment.mapper;
+package com.tingyu.tieba.mappers;
 
 import com.tingyu.tieba.comment.dataobject.CommentDO;
 

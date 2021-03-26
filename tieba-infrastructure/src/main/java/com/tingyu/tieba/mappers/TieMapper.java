@@ -1,4 +1,4 @@
-package com.tingyu.tieba.tie.mapper;
+package com.tingyu.tieba.mappers;
 
 import com.tingyu.tieba.tie.dataobject.TieDO;
 
