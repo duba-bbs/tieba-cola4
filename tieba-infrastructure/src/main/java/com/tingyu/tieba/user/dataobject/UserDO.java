@@ -1,5 +1,6 @@
 package com.tingyu.tieba.user.dataobject;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 import lombok.Data;
@@ -15,7 +16,7 @@ import lombok.Data;
 @Data
 public class UserDO{
 
-  private Long id;
+  private BigInteger id;
   /**
    * 登录账号
    */

@@ -1,5 +1,6 @@
 package com.tingyu.tieba.domain.user.model;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 import com.alibaba.cola.domain.Entity;
@@ -11,7 +12,7 @@ import lombok.Data;
 @Entity
 public class User{
 
-    private Long id;
+    private BigInteger id;
     /**
      * 登录账号
      */

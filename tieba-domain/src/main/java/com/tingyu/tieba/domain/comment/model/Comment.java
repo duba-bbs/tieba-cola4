@@ -1,5 +1,6 @@
 package com.tingyu.tieba.domain.comment.model;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 import com.alibaba.cola.domain.Entity;
@@ -11,16 +12,16 @@ import lombok.Data;
 @Entity
 public class Comment{
 
-    private Long id;
+    private BigInteger id;
     /**
      * 所属贴
      */
-    private Long tieId;
+    private BigInteger tieId;
 
     /**
      * 上级评论，如果是0表示主楼
      */
-    private Long parentId;
+    private BigInteger parentId;
 
     /**
      * 评论内容
@@ -30,7 +31,7 @@ public class Comment{
     /**
      * 评论者ID
      */
-    private Long userId;
+    private BigInteger userId;
 
     /**
      * 评论者
@@ -55,7 +56,7 @@ public class Comment{
     /**
      * 点赞数
      */
-    private Long likes;
+    private BigInteger likes;
 
     /**
      * 评论状态（0正常 1停用）

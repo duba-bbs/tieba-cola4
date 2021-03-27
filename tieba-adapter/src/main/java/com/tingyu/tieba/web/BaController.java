@@ -2,6 +2,7 @@ package com.tingyu.tieba.web;
 
 import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.cola.dto.Response;
+import com.alibaba.fastjson.JSON;
 import com.tingyu.tieba.ba.api.BaServiceI;
 import com.tingyu.tieba.ba.dto.command.BaAddCmd;
 import com.tingyu.tieba.ba.dto.command.BaDeleteCmd;
@@ -29,8 +30,13 @@ public class BaController {
         return baService.list(baListQry);
     }
 
+    // @PostMapping(value = "/ba")
+    // public Response addBa(@RequestBody BaAddCmd baAddCmd){
+    //     return baService.addBa(baAddCmd);
+    // }
     @PostMapping(value = "/ba")
-    public Response addBa(@RequestBody BaAddCmd baAddCmd){
+    public Response addBa(@RequestBody String json){
+        BaAddCmd baAddCmd = JSON.parseObject(json, BaAddCmd.class);
         return baService.addBa(baAddCmd);
     }
 

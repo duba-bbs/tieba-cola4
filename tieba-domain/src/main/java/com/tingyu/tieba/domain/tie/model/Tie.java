@@ -1,5 +1,6 @@
 package com.tingyu.tieba.domain.tie.model;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 import com.alibaba.cola.domain.Entity;
@@ -11,11 +12,11 @@ import lombok.Data;
 @Entity
 public class Tie{
 
-    private Long id;
+    private BigInteger id;
     /**
      * 所属吧
      */
-    private Long baId;
+    private BigInteger baId;
 
     /**
      * 贴子标题
@@ -30,7 +31,7 @@ public class Tie{
     /**
      * 发帖人ID
      */
-    private Long userId;
+    private BigInteger userId;
 
     /**
      * 发帖人
@@ -55,7 +56,7 @@ public class Tie{
     /**
      * 阅读量
      */
-    private Long viewTimes;
+    private BigInteger viewTimes;
 
     /**
      * 贴子状态（0正常 1停用）

@@ -33,8 +33,8 @@
         #{description},
         #{creator},
         #{modifier},
-        #{createTime},
-        #{modifyTime},
+        now(),
+        now(),
         #{status},
         #{remark},
         'n'

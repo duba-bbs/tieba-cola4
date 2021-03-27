@@ -1,6 +1,8 @@
 package com.tingyu.tieba.tie.dataobject;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
+
 import lombok.Data;
 
 /**
@@ -14,11 +16,11 @@ import lombok.Data;
 @Data
 public class TieDO {
 
-    private Long id;
+    private BigInteger id;
     /**
      * 所属吧
      */
-    private Long baId;
+    private BigInteger baId;
 
     /**
      * 贴子标题
@@ -33,7 +35,7 @@ public class TieDO {
     /**
      * 发帖人ID
      */
-    private Long userId;
+    private BigInteger userId;
 
     /**
      * 发帖人
@@ -58,7 +60,7 @@ public class TieDO {
     /**
      * 阅读量
      */
-    private Long viewTimes;
+    private BigInteger viewTimes;
 
     /**
      * 贴子状态（0正常 1停用）

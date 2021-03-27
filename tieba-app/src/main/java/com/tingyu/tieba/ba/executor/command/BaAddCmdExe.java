@@ -21,6 +21,8 @@ public class BaAddCmdExe{
         //The flow of usecase is defined here.
         //The core ablility should be implemented in Domain. or sink to Domian gradually
         BaEntity ba = BaConvertor.toDomainEntity(cmd.getBaDTO());
+        ba.setCreator("tingyu");
+        ba.setModifier("tingyu");
         baGateway.create(ba);
         return Response.buildSuccess();
     }

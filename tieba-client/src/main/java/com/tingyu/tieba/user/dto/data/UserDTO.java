@@ -1,12 +1,15 @@
 package com.tingyu.tieba.user.dto.data;
 
-import lombok.Data;
+import java.math.BigInteger;
+
 import javax.validation.constraints.NotEmpty;
+
+import lombok.Data;
 
 @Data
 public class UserDTO{
 
-    private Long id;
+    private BigInteger id;
     @NotEmpty
     private String userName;
     private String nickName;

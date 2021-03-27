@@ -41,3 +41,4 @@ infrastructure 层目前来看是不依赖 client 层的。
 
 - 为什么没有 ServletInitializer.java
 - application.properties 为什么没有指定 mybatis 的 mapper 路径
+- DTO/Domain Entity/DO 之间的字段差异，比如 creator 字段应该在哪个阶段注入

@@ -1,6 +1,8 @@
 package com.tingyu.tieba.comment.dataobject;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
+
 import lombok.Data;
 
 /**
@@ -14,16 +16,16 @@ import lombok.Data;
 @Data
 public class CommentDO {
 
-    private Long id;
+    private BigInteger id;
     /**
      * 所属贴
      */
-    private Long commentId;
+    private BigInteger commentId;
 
     /**
      * 上级评论，如果是0表示主楼
      */
-    private Long parentId;
+    private BigInteger parentId;
 
     /**
      * 评论内容
@@ -33,7 +35,7 @@ public class CommentDO {
     /**
      * 评论者ID
      */
-    private Long userId;
+    private BigInteger userId;
 
     /**
      * 评论者
@@ -58,7 +60,7 @@ public class CommentDO {
     /**
      * 点赞数
      */
-    private Long likes;
+    private BigInteger likes;
 
     /**
      * 评论状态（0正常 1停用）
