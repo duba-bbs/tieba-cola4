@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface BaMapper{
 
-  public BigDecimal create(BaDO baDO);
+  public Long create(BaDO baDO);
 
   public BigDecimal update(BaDO baDO);
 

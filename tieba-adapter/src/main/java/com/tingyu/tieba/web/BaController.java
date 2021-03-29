@@ -30,15 +30,15 @@ public class BaController {
         return baService.list(baListQry);
     }
 
-    // @PostMapping(value = "/ba")
-    // public Response addBa(@RequestBody BaAddCmd baAddCmd){
-    //     return baService.addBa(baAddCmd);
-    // }
     @PostMapping(value = "/ba")
-    public Response addBa(@RequestBody String json){
-        BaAddCmd baAddCmd = JSON.parseObject(json, BaAddCmd.class);
+    public Response addBa(@RequestBody BaAddCmd baAddCmd){
         return baService.addBa(baAddCmd);
     }
+    // @PostMapping(value = "/ba")
+    // public Response addBa(@RequestBody String json){
+    //     BaAddCmd baAddCmd = JSON.parseObject(json, BaAddCmd.class);
+    //     return baService.addBa(baAddCmd);
+    // }
 
     @DeleteMapping(value = "/ba")
     public Response deleteBa(BaDeleteCmd baDeleteCmd){

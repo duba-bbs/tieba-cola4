@@ -23,9 +23,17 @@
 
 **存储时**，外部的 DTO/VO/CO 在 app 层的 executor 中经过`convertor.toDomainEntity`转变为领域模型(放在`domain/model`)，领域模型除了字段可以有其他逻辑代码来计算数据，这是和 DTO 的不同之处，接着在 infrastructure 层的 gatewayimpl 中再将领域模型通过`convertor.toDataObject`转变成 DO(特指库表映射对象)，最后通过 DAO 接口(XXXMapper.java)持久化 DO。
 
-**查询时**就是上述的逆过程，要注意的是，domain 层是可选的，也就是说领域模型是应对复杂数据结构及操作时需要的，对于简单的 CRUD 是可以绕过 domain 层，直接在 app 层的 executor 中调用 infrastructure 层的 DAO 接口。可以参考 COLA 作者的原话[对于 domain，app，infra 的疑问](https://github.com/alibaba/COLA/issues/130)。
+**查询时**使用 Qry 对象接受查询参数，接着在 app 层中，可以选择经过 domain 层加工（即在 app 层调用 gateway），或者直接调用 infrastructure 层的 XXXMapper。
 
-根据 cola 作者提供的 sample 来看，不管要不要 domain 层，都是在 app 层将 Domain Entity/DO 转为 DTO/VO/CO 的，所以如果不要 domain 层，在 Gateway 层直接返回 DO 即可，然后在 app 层将 DO 转为 CO，如果要 domain 层，在 Gateway 层将 DO 转为 Entity，然后在 app 层将 Entity 转为 CO。参考[infrastructure 中多个查询参数该怎么封装](https://github.com/alibaba/COLA/issues/177)。
+总结来看，domain 层只是对于复杂业务和数据结构的再分层，对于简单的 CRUD 是可以绕过 domain 层，直接在 app 层的 executor 中调用 infrastructure 层的 DAO 接口。可以参考 COLA 作者的原话[对于 domain，app，infra 的疑问](https://github.com/alibaba/COLA/issues/130)。
+
+COLA 架构中，有 3 种数据结构：
+
+1. client 层的 VO/CO/Qry/DTO
+2. domain 层的 domain entity
+3. infrastructure 层的 DO
+
+要注意它们之间的转换。关联一个问题[infrastructure 中多个查询参数该怎么封装](https://github.com/alibaba/COLA/issues/177)。
 
 infrastructure 层目前来看是不依赖 client 层的。
 
@@ -40,5 +48,12 @@ infrastructure 层目前来看是不依赖 client 层的。
 ## Q&A
 
 - 为什么没有 ServletInitializer.java
+
+Spring Boot 为我们封装好了。
+
 - application.properties 为什么没有指定 mybatis 的 mapper 路径
+
+因为在 Application.java 中定义了`@MapperScan("com.tingyu.tieba.mappers")`自动扫描。
+
 - DTO/Domain Entity/DO 之间的字段差异，比如 creator 字段应该在哪个阶段注入
+- @RequestBody null
