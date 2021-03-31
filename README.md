@@ -56,4 +56,13 @@ Spring Boot 为我们封装好了。
 因为在 Application.java 中定义了`@MapperScan("com.tingyu.tieba.mappers")`自动扫描。
 
 - DTO/Domain Entity/DO 之间的字段差异，比如 creator 字段应该在哪个阶段注入
+
 - @RequestBody null
+
+仔细检查字段名称是否正确
+
+- Error setting non null for parameter #1 with JdbcType null
+
+Caused by: org.apache.ibatis.type.TypeException: Could not set parameters for mapping: ParameterMapping{property='baName', mode=IN, javaType=class java.lang.String, jdbcType=null, numericScale=null, resultMapId='null', jdbcTypeName='null', expression='null'}. Cause: org.apache.ibatis.type.TypeException: Error setting non null for parameter #1 with JdbcType null . Try setting a different JdbcType for this parameter or a different configuration property. Cause: java.sql.SQLException: Parameter index out of range (1 > number of parameters, which is 0).
+
+把`ba_name like '#{baName}%'`改为`ba_name like concat(#{baName}, '%')`
