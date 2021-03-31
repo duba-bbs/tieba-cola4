@@ -6,12 +6,11 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import com.alibaba.cola.dto.MultiResponse;
+import com.tingyu.tieba.ba.converter.AppConverter;
 import com.tingyu.tieba.ba.dataobject.BaDO;
 import com.tingyu.tieba.ba.dto.data.BaDTO;
 import com.tingyu.tieba.ba.dto.query.BaListQry;
 import com.tingyu.tieba.mappers.BaMapper;
-
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -20,13 +19,12 @@ public class BaListQryExe{
     @Resource
     private BaMapper baMapper;
 
-    public MultiResponse<BaDTO> execute(BaListQry cmd) {
-        List<BaDO> baDOList = baMapper.list(cmd);
+    public MultiResponse<BaDTO> execute(BaListQry qry) {
+        System.out.println(AppConverter.toDataObject(qry));
+        List<BaDO> baDOList = baMapper.list(AppConverter.toDataObject(qry));
         List<BaDTO> baDTOList = new ArrayList<>();
         baDOList.forEach(baDO -> {
-            BaDTO baDTO = new BaDTO();
-            BeanUtils.copyProperties(baDO, baDTO);
-            baDTOList.add(baDTO);
+            baDTOList.add(AppConverter.toClientObject(baDO));
         });
         return MultiResponse.of(baDTOList);
     }

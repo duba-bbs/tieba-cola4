@@ -1,7 +1,7 @@
 package com.tingyu.tieba.ba.executor.command;
 
 import com.alibaba.cola.dto.Response;
-import com.tingyu.tieba.ba.convertor.BaConvertor;
+import com.tingyu.tieba.ba.converter.AppConverter;
 import com.tingyu.tieba.ba.dto.command.BaUpdateCmd;
 import com.tingyu.tieba.domain.ba.gateway.BaGateway;
 import com.tingyu.tieba.domain.ba.model.BaEntity;
@@ -16,7 +16,7 @@ public class BaUpdateCmdExe{
     private BaGateway baGateway;
     
     public Response execute(BaUpdateCmd cmd) {
-        BaEntity ba = BaConvertor.toDomainEntity(cmd.getBaDTO());
+        BaEntity ba = AppConverter.toDomainEntity(cmd.getBaDTO());
         baGateway.update(ba);
         return Response.buildSuccess();
     }

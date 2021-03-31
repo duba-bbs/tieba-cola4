@@ -45,7 +45,7 @@
         UPDATE sys_ba SET is_deleted='y' WHERE id = #{id} and IS_DELETED = 'n'
     </delete>
 
-    <select id="list" resultType="com.tingyu.tieba.ba.dataobject.BaDO" parameterType="map">
+    <select id="list" resultType="com.tingyu.tieba.ba.dataobject.BaDO" parameterType="com.tingyu.tieba.ba.dataobject.BaDO">
         <include refid="COMMON_SELECT"/>
         WHERE
         <if test="id != null">

@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import com.tingyu.tieba.ba.dataobject.BaDO;
-import com.tingyu.tieba.ba.dto.query.BaListQry;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -17,6 +16,6 @@ public interface BaMapper{
 
   public BigDecimal delete(@Param("id") BigInteger id);
   
-  public List<BaDO> list(BaListQry baListQry);
+  public List<BaDO> list(BaDO baDO);
 
 }
