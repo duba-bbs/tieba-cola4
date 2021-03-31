@@ -2,11 +2,18 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TestApplication",
+            "request": "launch",
+            "mainClass": "com.tingyu.tieba.TestApplication",
+            "projectName": "start"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-Application<start>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
-            "mainClass": "com.tingyu.Application",
+            "mainClass": "com.tingyu.tieba.Application",
             "projectName": "start",
             "args": ""
         }

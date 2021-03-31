@@ -24,3 +24,5 @@ nbdist/
 bin/
 doc/
 .DS_Store
+
+autogen/

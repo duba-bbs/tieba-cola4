@@ -37,7 +37,11 @@
 
     <!--应用日志-->
     <!--这个logger没有指定appender，它会继承root节点中定义的那些appender-->
+<<<<<<< HEAD
     <logger name="com.tingyu" level="DEBUG"/>
+=======
+    <logger name="com.tingyu.tieba" level="DEBUG"/>
+>>>>>>> eee8f8e2a691102744f47a056a0face93d34c00a
 
     <!--数据库日志-->
     <!--由于这个logger自动继承了root的appender，root中已经有stdout的appender了，自己这边又引入了stdout的appender-->

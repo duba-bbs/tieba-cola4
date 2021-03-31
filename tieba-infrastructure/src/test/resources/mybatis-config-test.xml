@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- mybatis的配置文件 -->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 开启驼峰映射 ，否则查询结果不能转成resultType-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <mappers>
+        <mapper resource="mybatis/BaMapper.xml"/>
+        <mapper resource="mybatis/CommentMapper.xml"/>
+        <mapper resource="mybatis/TieMapper.xml"/>
+        <mapper resource="mybatis/UserMapper.xml"/>
+    </mappers>
+</configuration>

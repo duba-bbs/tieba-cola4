@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.tingyu</groupId>
+    <groupId>com.tingyu.tieba</groupId>
     <artifactId>tieba-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -55,27 +55,27 @@
 
             <!--Project modules-->
             <dependency>
-                <groupId>com.tingyu</groupId>
+                <groupId>com.tingyu.tieba</groupId>
                 <artifactId>tieba-adapter</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.tingyu</groupId>
+                <groupId>com.tingyu.tieba</groupId>
                 <artifactId>tieba-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.tingyu</groupId>
+                <groupId>com.tingyu.tieba</groupId>
                 <artifactId>tieba-app</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.tingyu</groupId>
+                <groupId>com.tingyu.tieba</groupId>
                 <artifactId>tieba-domain</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.tingyu</groupId>
+                <groupId>com.tingyu.tieba</groupId>
                 <artifactId>tieba-infrastructure</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -144,6 +144,19 @@
                 <scope>test</scope>
             </dependency>
             <!-- Misc End -->
+
+            <!-- Mybatis Plus Generator -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>3.4.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>2.3</version>
+            </dependency>
+            <!-- Tools End -->
         </dependencies>
     </dependencyManagement>
 
