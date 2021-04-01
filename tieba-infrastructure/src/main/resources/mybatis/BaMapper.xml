@@ -45,17 +45,18 @@
         UPDATE sys_ba SET is_deleted='y' WHERE id = #{id} and IS_DELETED = 'n'
     </delete>
 
-    <select id="list" resultType="com.tingyu.tieba.ba.dataobject.BaDO" parameterType="com.tingyu.tieba.ba.dataobject.BaDO">
+    <select id="list" resultType="com.tingyu.tieba.ba.dataobject.BaDO"
+            parameterType="com.tingyu.tieba.ba.dataobject.BaDO">
         <include refid="COMMON_SELECT"/>
         WHERE
-        <if test="id != null">
+        <if test="id != null and id != 0">
             id = #{id} and
         </if>
-        <if test="parentId != null">
+        <if test="parentId != null and parentId != 0">
             parent_id = #{parentId} and
         </if>
-        <if test="baName != null">
-            ba_name like '#{baName}%' and
+        <if test="baName != null and baName != ''">
+            ba_name like '${baName}%' and
         </if>
         <if test="level != null">
             level = #{level} and
