@@ -52,10 +52,6 @@ infrastructure 层目前来看是不依赖 client 层的。
 
 ## Q&A
 
-- 为什么没有 ServletInitializer.java
-
-Spring Boot 为我们封装好了。
-
 - application.properties 为什么没有指定 mybatis 的 mapper 路径
 
 因为在 Application.java 中定义了`@MapperScan("com.tingyu.tieba.mappers")`自动扫描。
