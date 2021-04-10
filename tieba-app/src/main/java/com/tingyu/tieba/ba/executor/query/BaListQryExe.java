@@ -5,8 +5,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import com.alibaba.cola.dto.MultiResponse;
-import com.tingyu.tieba.ba.converter.AppConverter;
+import com.alibaba.cola.dto.PageResponse;
+import com.github.pagehelper.PageHelper;
+import com.tingyu.tieba.ba.converter.AppBaConverter;
 import com.tingyu.tieba.ba.dataobject.BaDO;
 import com.tingyu.tieba.ba.dto.data.BaDTO;
 import com.tingyu.tieba.ba.dto.query.BaListQry;
@@ -14,18 +15,21 @@ import com.tingyu.tieba.mappers.BaMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BaListQryExe{
+public class BaListQryExe {
 
     @Resource
     private BaMapper baMapper;
 
-    public MultiResponse<BaDTO> execute(BaListQry qry) {
-        System.out.println(AppConverter.toDataObject(qry));
-        List<BaDO> baDOList = baMapper.list(AppConverter.toDataObject(qry));
+    public PageResponse<BaDTO> execute(BaListQry qry) {
+        PageHelper.startPage(qry.getPageIndex(), qry.getPageSize(), qry.getOrderBy());
+        List<BaDO> baDOList = baMapper.list(AppBaConverter.toDataObject(qry));
         List<BaDTO> baDTOList = new ArrayList<>();
         baDOList.forEach(baDO -> {
-            baDTOList.add(AppConverter.toClientObject(baDO));
+            baDTOList.add(AppBaConverter.toClientObject(baDO));
         });
-        return MultiResponse.of(baDTOList);
+        if (!baDTOList.isEmpty()) {
+            return PageResponse.of(baDTOList, baDTOList.size(), qry.getPageSize(), qry.getPageIndex());
+        }
+        return PageResponse.of(qry.getPageSize(), qry.getPageIndex());
     }
 }

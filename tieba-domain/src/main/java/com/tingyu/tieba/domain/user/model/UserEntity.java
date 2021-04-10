@@ -10,7 +10,7 @@ import lombok.Data;
 //Domain Entity can choose to extends the domain model which is used for DTO
 @Data
 @Entity
-public class User{
+public class UserEntity {
 
     private BigInteger id;
     /**
@@ -113,7 +113,7 @@ public class User{
      */
     private String isDeleted;
 
-    public User() {
+    public UserEntity() {
     }
 
     public boolean isValidUser() {

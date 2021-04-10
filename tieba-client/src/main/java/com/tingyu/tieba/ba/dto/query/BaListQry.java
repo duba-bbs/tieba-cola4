@@ -2,11 +2,11 @@ package com.tingyu.tieba.ba.dto.query;
 
 import java.math.BigInteger;
 
-import com.alibaba.cola.dto.Query;
+import com.alibaba.cola.dto.PageQuery;
 import lombok.Data;
 
 @Data
-public class BaListQry extends Query{
+public class BaListQry extends PageQuery {
 
    private BigInteger id;
    private BigInteger parentId;

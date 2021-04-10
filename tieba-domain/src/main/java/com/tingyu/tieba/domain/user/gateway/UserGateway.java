@@ -1,7 +1,13 @@
 package com.tingyu.tieba.domain.user.gateway;
 
-import com.tingyu.tieba.domain.user.model.User;
+import java.math.BigInteger;
+
+import com.tingyu.tieba.domain.user.model.UserEntity;
 
 public interface UserGateway {
-    public User getUserById(String userId);
+    public void create(UserEntity user);
+
+    public void update(UserEntity user);
+
+    public void delete(BigInteger id);
 }

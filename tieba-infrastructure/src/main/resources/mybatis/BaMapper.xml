@@ -42,7 +42,7 @@
     </insert>
 
     <delete id="delete" parameterType="map">
-        UPDATE sys_ba SET is_deleted='y' WHERE id = #{id} and IS_DELETED = 'n'
+        UPDATE sys_ba SET is_deleted='y' WHERE id = #{id} and is_deleted = 'n'
     </delete>
 
     <select id="list" resultType="com.tingyu.tieba.ba.dataobject.BaDO" parameterType="com.tingyu.tieba.ba.dataobject.BaDO">
@@ -55,12 +55,13 @@
             parent_id = #{parentId} and
         </if>
         <if test="baName != null">
-            ba_name like '#{baName}%' and
+            ba_name = #{baName} and
         </if>
         <if test="level != null">
             level = #{level} and
         </if>
-        IS_DELETED = 'n'
+        is_deleted = 'n'
+        ORDER BY create_time DESC
     </select>
 
     <update id="update" parameterType="com.tingyu.tieba.ba.dataobject.BaDO">

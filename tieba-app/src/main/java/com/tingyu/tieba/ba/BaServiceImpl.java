@@ -3,6 +3,7 @@ package com.tingyu.tieba.ba;
 import javax.annotation.Resource;
 import com.alibaba.cola.catchlog.CatchAndLog;
 import com.alibaba.cola.dto.MultiResponse;
+import com.alibaba.cola.dto.PageResponse;
 import com.alibaba.cola.dto.Response;
 import com.tingyu.tieba.ba.api.BaServiceI;
 import com.tingyu.tieba.ba.dto.command.BaAddCmd;
@@ -33,7 +34,7 @@ public class BaServiceImpl implements BaServiceI {
     private BaListQryExe baListQryExe;
 
     @Override
-    public MultiResponse<BaDTO> list(BaListQry baListQry) {
+    public PageResponse<BaDTO> list(BaListQry baListQry) {
         return baListQryExe.execute(baListQry);
     }
 
