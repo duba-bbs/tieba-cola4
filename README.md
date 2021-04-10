@@ -1,4 +1,9 @@
-## COLO 目录
+# 度度贴吧
+
+COLA 架构太难驾驭，放弃！！！
+
+请跳转[https://github.com/dudu-tieba/tieba](https://github.com/dudu-tieba/tieba)。
+## COLA目录
 
 |    层次    |    包名     |                功能                 | 必选 |
 | :--------: | :---------: | :---------------------------------: | :--: |
